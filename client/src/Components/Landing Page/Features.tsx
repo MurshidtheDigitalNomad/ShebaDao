@@ -1,4 +1,4 @@
-import React from "react";
+
 import { Brain, Briefcase, TrendingUp } from "lucide-react";
 
 const Features = () => {

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, CheckCircle, Upload, Brain, TrendingUp, Briefcase, ArrowRight, Linkedin, Twitter, Github } from 'lucide-react';
+import { CheckCircle, Upload, Brain, Briefcase} from 'lucide-react';
 
 const HowItWorks = () => {
     const [visibleSteps, setVisibleSteps] = useState<number[]>([]);

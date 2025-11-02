@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from 'react';
-import { Menu, X, CheckCircle, Upload, Brain, TrendingUp, Briefcase, ArrowRight, Linkedin, Twitter, Github } from 'lucide-react';
+
 
 const VisionQuote = () => {
     return (
