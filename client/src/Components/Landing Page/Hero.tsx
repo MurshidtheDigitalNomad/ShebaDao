@@ -1,5 +1,6 @@
 
 import {CheckCircle, Brain, ArrowRight } from 'lucide-react';
+import {Link} from 'react-router-dom';
 
 
 const Hero = () => {
@@ -184,6 +185,7 @@ const Hero = () => {
                 </div>
   
                 <div className="hero-buttons">
+                <Link to="/start">
                   <button style={{ 
                     padding: '1rem 2rem', 
                     backgroundColor: 'white', 
@@ -200,11 +202,13 @@ const Hero = () => {
                     marginTop: '1.5rem',
                     boxShadow: '0 0 20px rgba(255, 172, 172, 0.6)',
                     transition: 'all 0.3s'
-                  }} onMouseEnter={(e) => e.currentTarget.style.boxShadow = '0 0 30px rgba(255, 172, 172, 0.9)'}
-                     onMouseLeave={(e) => e.currentTarget.style.boxShadow = '0 0 20px rgba(255, 172, 172, 0.6)'}>
+                  }} 
+                    onMouseEnter={(e) => e.currentTarget.style.boxShadow = '0 0 30px rgba(255, 172, 172, 0.9)'}
+                    onMouseLeave={(e) => e.currentTarget.style.boxShadow = '0 0 20px rgba(255, 172, 172, 0.6)'}>
                     Start Now
                     <ArrowRight />
                   </button>
+                </Link>
                   <button style={{ 
                     padding: '1rem 2rem', 
                     border: '2px solid white', 
