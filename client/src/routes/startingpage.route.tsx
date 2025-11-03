@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import LoadingAnimation from "../Components/StartingPage/LoadingAnimation";
 import StartingForm from "../Components/StartingPage/StartingForm";
