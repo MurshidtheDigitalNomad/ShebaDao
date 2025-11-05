@@ -1,21 +1,45 @@
-import  { useState, useEffect } from 'react';
-import {ArrowRight } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { ArrowRight } from 'lucide-react';
 import FileUpload from './FileUpload';
 
 interface StartingFormProps {
-  onSubmit: (formData: { fullName: string; email: string; industry: string; intendedRole: string; gender: string }, file: File | null) => void;
+  onSubmit: (formData: { fullName: string; email: string; industry: string; intendedJob: string; gender: string }, file: File | null) => void;
 }
 
+// Key for sessionStorage
+const FORM_STORAGE_KEY = 'shebadao_form_data';
+
 const StartingForm = ({ onSubmit }: StartingFormProps) => {
-    const [formData, setFormData] = useState({
-      fullName: '',
-      email: '',
-      industry: '',
-      intendedRole: '',
-      gender: ''
+    // Load saved form data from sessionStorage on component mount
+    const [formData, setFormData] = useState(() => {
+      const savedData = sessionStorage.getItem(FORM_STORAGE_KEY);
+      return savedData ? JSON.parse(savedData) : {
+        fullName: '',
+        email: '',
+        industry: '',
+        intendedJob: '',
+        gender: ''
+      };
     });
+    
     const [file, setFile] = useState<File | null>(null);
     const [currentStep, setCurrentStep] = useState(0);
+  
+    // Save form data to sessionStorage whenever it changes
+    useEffect(() => {
+      sessionStorage.setItem(FORM_STORAGE_KEY, JSON.stringify(formData));
+    }, [formData]);
+    
+    // Clear the form data from sessionStorage when component unmounts or on successful submission
+    useEffect(() => {
+      return () => {
+        // Only clear if all required fields are filled (indicating successful submission)
+        if (formData.fullName && formData.email && formData.industry && 
+            formData.intendedJob && formData.gender && file) {
+          sessionStorage.removeItem(FORM_STORAGE_KEY);
+        }
+      };
+    }, [formData, file]);
   
     useEffect(() => {
       const stepTimer = setTimeout(() => {
@@ -25,7 +49,7 @@ const StartingForm = ({ onSubmit }: StartingFormProps) => {
     }, [currentStep]);
   
     const handleSubmit = () => {
-      if (formData.fullName && formData.email && formData.industry && formData.intendedRole && formData.gender && file) {
+      if (formData.fullName && formData.email && formData.industry && formData.intendedJob && formData.gender && file) {
         onSubmit(formData, file);
       }
     };
@@ -310,8 +334,8 @@ const StartingForm = ({ onSubmit }: StartingFormProps) => {
                   Intended Role / Occupation
                 </label>
                 <select
-                  value={formData.intendedRole === 'Other' ? 'Other' : formData.intendedRole}
-                  onChange={(e) => setFormData({ ...formData, intendedRole: e.target.value })}
+                  value={formData.intendedJob === 'Other' ? 'Other' : formData.intendedJob}
+                  onChange={(e) => setFormData({ ...formData, intendedJob: e.target.value })}
                   style={{
                     width: '100%',
                     padding: '0.875rem 1rem',
@@ -343,7 +367,7 @@ const StartingForm = ({ onSubmit }: StartingFormProps) => {
               </div>
 
               {/* Custom Role Input - Shows when "Other" is selected */}
-              {formData.intendedRole === 'Other' && (
+              {formData.intendedJob === 'Other' && (
                 <div>
                   <label style={{
                     display: 'block',
@@ -356,8 +380,8 @@ const StartingForm = ({ onSubmit }: StartingFormProps) => {
                   </label>
                   <input
                     type="text"
-                    value={formData.intendedRole === 'Other' ? '' : formData.intendedRole}
-                    onChange={(e) => setFormData({ ...formData, intendedRole: e.target.value || 'Other' })}
+                    value={formData.intendedJob === 'Other' ? '' : formData.intendedJob}
+                    onChange={(e) => setFormData({ ...formData, intendedJob: e.target.value || 'Other' })}
                     placeholder="Enter your intended role"
                     style={{
                       width: '100%',
@@ -443,11 +467,11 @@ const StartingForm = ({ onSubmit }: StartingFormProps) => {
               {/* Submit Button */}
               <button
                 onClick={handleSubmit}
-                disabled={!formData.fullName || !formData.email || !formData.industry || !formData.intendedRole || !formData.gender || !file}
+                disabled={!formData.fullName || !formData.email || !formData.industry || !formData.intendedJob || !formData.gender || !file}
                 style={{
                   width: '100%',
                   padding: '1rem 2rem',
-                  background: formData.fullName && formData.email && formData.industry && formData.intendedRole && formData.gender && file 
+                  background: formData.fullName && formData.email && formData.industry && formData.intendedJob && formData.gender && file 
                     ? 'linear-gradient(135deg, #FFACAC 0%, #E45A92 100%)' 
                     : 'rgba(255,255,255,0.1)',
                   color: 'white',
@@ -455,20 +479,20 @@ const StartingForm = ({ onSubmit }: StartingFormProps) => {
                   border: 'none',
                   fontSize: '1.125rem',
                   fontWeight: 'bold',
-                  cursor: formData.fullName && formData.email && formData.industry && formData.intendedRole && formData.gender && file ? 'pointer' : 'not-allowed',
+                  cursor: formData.fullName && formData.email && formData.industry && formData.intendedJob && formData.gender && file ? 'pointer' : 'not-allowed',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
                   gap: '0.5rem',
                   transition: 'all 0.3s',
-                  boxShadow: formData.fullName && formData.email && formData.industry && formData.intendedRole && formData.gender && file 
+                  boxShadow: formData.fullName && formData.email && formData.industry && formData.intendedJob && formData.gender && file 
                     ? '0 0 30px rgba(228, 90, 146, 0.5)' 
                     : 'none',
                   fontFamily: 'Teko, sans-serif',
-                  opacity: formData.fullName && formData.email && formData.industry && formData.intendedRole && formData.gender && file ? 1 : 0.5
+                  opacity: formData.fullName && formData.email && formData.industry && formData.intendedJob && formData.gender && file ? 1 : 0.5
                 }}
                 onMouseEnter={(e) => {
-                  if (formData.fullName && formData.email && formData.industry && formData.intendedRole && formData.gender && file) {
+                  if (formData.fullName && formData.email && formData.industry && formData.intendedJob && formData.gender && file) {
                     (e.target as HTMLButtonElement).style.boxShadow = '0 0 40px rgba(228, 90, 146, 0.8)';
                     (e.target as HTMLButtonElement).style.transform = 'scale(1.02)';
                   }

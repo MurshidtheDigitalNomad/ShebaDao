@@ -8,7 +8,7 @@ interface VerifyingPageProps {
     fullName: string;
     email: string;
     industry: string;
-    intendedRole: string;
+    intendedJob: string;
     gender: string;
   };
   resumeFile?: File | null;
@@ -25,7 +25,7 @@ const VerifyingPage = ({ userData, resumeFile, onBack }: VerifyingPageProps = {}
     fullName: 'Not provided',
     email: 'Not provided',
     industry: 'Not provided',
-    intendedRole: 'Not provided',
+    intendedJob: 'Not provided',
     gender: 'Not provided'
   };
 
@@ -37,29 +37,37 @@ const VerifyingPage = ({ userData, resumeFile, onBack }: VerifyingPageProps = {}
   const isPdf = finalResumeFile?.type === 'application/pdf';
 
   const handleSubmit = async () => {
-    if (!finalResumeFile) return alert("Please upload a resume");
+    if (!finalResumeFile) {
+      alert("Please upload a resume");
+      return;
+    }
 
     setIsLoading(true);
 
     try {
-        // Call saveUserData with the form data and resume file
-        await saveUserData(finalUserData, finalResumeFile);
-
-        setIsLoading(false);
-        alert("Profile saved successfully!");
-
-        // Navigate to next page after successful save
-        navigate('/ai-test-start');
-    } catch (err) {
-        console.error(err);
-        setIsLoading(false);
-        alert("Something went wrong while saving your profile.");
-  }
+      // Call saveUserData with the form data and resume file
+      await saveUserData(finalUserData, finalResumeFile);
+      
+      // Navigate to success page or dashboard
+      navigate('/dashboard', { 
+        state: { 
+          success: true,
+          message: 'Profile saved successfully!' 
+        } 
+      });
+    } catch (error) {
+      console.error('Error in handleSubmit:', error);
+      alert(`Failed to save profile: ${error instanceof Error ? error.message : 'Unknown error'}`);
+    } finally {
+      setIsLoading(false);
+      // Navigate to next page after successful save
+      navigate('/resume-analyzing');
+    }
     
     // Simulate processing
     setTimeout(() => {
       setIsLoading(false);
-      navigate('/ai-test-start');
+      navigate('/resume-analyzing');
     }, 1500);
   };
 
@@ -259,7 +267,7 @@ const VerifyingPage = ({ userData, resumeFile, onBack }: VerifyingPageProps = {}
                   borderRadius: '0.75rem',
                   border: '1px solid rgba(255,255,255,0.1)'
                 }}>
-                  {finalUserData.intendedRole}
+                  {finalUserData.intendedJob}
                 </p>
               </div>
 

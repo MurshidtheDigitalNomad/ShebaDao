@@ -3,6 +3,8 @@ import Landing from './routes/landingpage.route'
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import StartProcess from './routes/startingpage.route';
 import VerifyingPage from './Components/VerifyingPage';
+import ResumeAnalysisAnimation from './Components/ResumeAnlaysisAnimation/ResumeAnalysisAnimation';
+
 
 function App() {
 
@@ -12,6 +14,7 @@ function App() {
         <Route path="/" element={<Landing />} />
         <Route path="/start" element={<StartProcess />} />
         <Route path="/verify" element={<VerifyingPage />} />
+        <Route path="/resume-analyzing" element={<ResumeAnalysisAnimation />} />
       </Routes>
     </Router>
   )

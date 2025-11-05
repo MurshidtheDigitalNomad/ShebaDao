@@ -11,7 +11,7 @@ function StartProcess() {
     setShowForm(true);
   };
 
-  const handleFormSubmit = (formData: { fullName: string; email: string; industry: string; intendedRole: string; gender: string }, file: File | null) => {
+  const handleFormSubmit = (formData: { fullName: string; email: string; industry: string; intendedJob: string; gender: string }, file: File | null) => {
     console.log("User Data:", formData);
     console.log("Uploaded File:", file);
     // Navigate to verify page with form data and file
