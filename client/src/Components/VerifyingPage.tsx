@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { FileText, Download } from 'lucide-react';
-import saveUserData from '../DataBase/resumeUpload';
+import saveUserData from '../Utils/resumeUpload';
 
 interface VerifyingPageProps {
   userData?: {
@@ -48,22 +48,18 @@ const VerifyingPage = ({ userData, resumeFile, onBack }: VerifyingPageProps = {}
       // Call saveUserData with the form data and resume file
       await saveUserData(finalUserData, finalResumeFile);
       
-      // Navigate to success page or dashboard
-      navigate('/dashboard', { 
+      navigate('/resume-analyzing', { 
         state: { 
           success: true,
           message: 'Profile saved successfully!' 
         } 
       });
     } catch (error) {
+
       console.error('Error in handleSubmit:', error);
       alert(`Failed to save profile: ${error instanceof Error ? error.message : 'Unknown error'}`);
-    } finally {
-      setIsLoading(false);
-      // Navigate to next page after successful save
-      navigate('/resume-analyzing');
-    }
     
+    }
     // Simulate processing
     setTimeout(() => {
       setIsLoading(false);

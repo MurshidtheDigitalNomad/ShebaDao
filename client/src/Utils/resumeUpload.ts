@@ -1,6 +1,6 @@
-import { supabase } from './supabaseSetup';
-import { extractResumeText } from '../Utils/extractResume';
-import { ParseResume } from '../Utils/parseResumeClient';
+import { supabase } from '../DataBase/supabaseSetup';
+import { extractResumeText } from './extractResume';
+import { ParseResume } from './parseResumeClient';
 
 interface FormData {
   fullName: string;
@@ -69,6 +69,9 @@ async function saveUserData(formData: FormData, file: File): Promise<void> {
       ]);
 
     if (insertParsedError) throw insertParsedError;
+
+    //storing latest user ID
+    localStorage.setItem('id', userId);
       
 
     console.log("✅ Resume processed & stored!");
