@@ -6,6 +6,7 @@ import VerifyingPage from './Components/VerifyingPage';
 import ResumeAnalysisAnimation from './Components/TestInstructionPage/ResumeAnalysisAnimation';
 import AITestInstruction from './Components/TestInstructionPage/AITestInstruction';
 import AITestPage from './Components/TestPage';
+import DashboardPage from './routes/dashboard.route';
 
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
         <Route path="/resume-analyzing" element={<ResumeAnalysisAnimation />} />
         <Route path="/ai-test-instructions" element={<AITestInstruction />} />
         <Route path="/test" element={<AITestPage/>}/>
+        <Route path="/dashboard" element={<DashboardPage/>}/>
       </Routes>
     </Router>
   )
