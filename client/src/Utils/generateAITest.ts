@@ -86,7 +86,7 @@ export async function generateAITest(userId: string) {
     Important:
     - Tailor the technical questions to the candidate’s actual field and skills.
     - Gradually increase difficulty from Q1 to Q5 within each section.
-    - Avoid trick questions.
+    - Ensure trick questions, and keep options similar so that it actually tests user.
     - Keep language simple, clear, and professional.
     
     Return ONLY valid JSON in this exact format:
@@ -111,7 +111,6 @@ export async function generateAITest(userId: string) {
     const aiText = result.response.text();
 
     const questions = safeJsonParse(aiText);
-    console.log("✅ Generated Questions:", questions);
 
     // Map AI-generated questions to match the table
     const formatted = questions.questions.map((q: any) => ({
@@ -131,8 +130,6 @@ export async function generateAITest(userId: string) {
     .insert(formatted);
 
     if (qError) throw qError;
-
-    console.log("✅ Questions inserted successfully!");
 
   } catch (err) {
     console.error("❌ Error generating test:", err);

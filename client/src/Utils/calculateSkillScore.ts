@@ -73,21 +73,11 @@ export async function calculateScore(
     .select();
 
   if (sessionError) throw sessionError;
-  console.log('✅ Test session saved:', sessionData)
+
   const sessionId = sessionData?.[0]?.id;
   if (!sessionId) throw new Error("Failed to save test session");
 
-  // Step 6: Insert skill report (without AI part yet)
-  console.log('Inserting into skill_reports with values:', {
-    user_id: userId,
-    session_id: sessionId,
-    english_score: englishScore,
-    logical_score: logicalScore,
-    technical_score: technicalScore,
-    weighted_score: weightedScore
-  });
-
-  const { data: skillData, error: skillError } = await supabase
+  const { error: skillError } = await supabase
     .from('skill_reports')
     .insert([{
       user_id: userId,
@@ -101,7 +91,6 @@ export async function calculateScore(
     .select();
 
   if (skillError) throw skillError;
-  console.log('✅ Skill report saved:', skillData);
 
   return {
     rawScore,

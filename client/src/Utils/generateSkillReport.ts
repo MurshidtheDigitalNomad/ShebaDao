@@ -13,8 +13,6 @@ export async function generateSkillReport(userId: string): Promise<number> {
       .single();
   
     if (error) throw error;
-    console.log('Skill score data:', data);
-
     const score = data?.weighted_score || 0;
     return parseFloat(score.toFixed(2)); // ✅ Round to 2 decimal places
   }
@@ -122,7 +120,6 @@ export async function generateAIReport(userId: string) {
       reportJSON = JSON.parse(jsonString);
     } catch (err) {
       console.error("❌ Error parsing AI response:", err);
-      console.log("Raw response was:", responseText);
       throw new Error("Failed to parse AI output as JSON");
     }
   
@@ -137,6 +134,5 @@ export async function generateAIReport(userId: string) {
   
     if (insertError) throw insertError;
   
-    console.log("✅ AI report generated and stored successfully!");
     return reportJSON;
 }

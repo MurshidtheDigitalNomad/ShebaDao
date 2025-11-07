@@ -71,7 +71,6 @@ export async function ProvideJobRecommendations(userId: string) {
       jobJSON = JSON.parse(jsonString);
     } catch (err) {
       console.error("Failed to parse AI job output:", err);
-      console.log("Raw response:", responseText);
       throw new Error("Failed to parse AI job output");
     }
   

@@ -17,8 +17,7 @@ export async function generateTestSession(userId: string): Promise<any[]> {
     
         // Store questions in localStorage
         localStorage.setItem("test_question_bank", JSON.stringify(questions));
-    
-        console.log("✅ Test session initialized. Questions stored locally.");
+
         return questions;
     
       } catch (err) {
