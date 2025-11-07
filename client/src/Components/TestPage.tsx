@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { ChevronLeft, ChevronRight, Clock, AlertCircle } from 'lucide-react';
+import { ChevronLeft, Clock, AlertCircle } from 'lucide-react';
 import { generateTestSession } from '../Utils/generateTestSession';
 import { calculateScore } from '../Utils/calculateSkillScore';
 import { useNavigate } from 'react-router-dom';

@@ -295,6 +295,7 @@ const TestInstructionPage = () => {
                   fontFamily: 'Teko, sans-serif'
                 }}
                 onClick={handleStartTest}
+                disabled={loading}
                 onMouseEnter={(e) => {
                   const button = e.target as HTMLButtonElement;
                   button.style.boxShadow = '0 0 60px rgba(228, 90, 146, 0.9)';
@@ -306,7 +307,7 @@ const TestInstructionPage = () => {
                   button.style.transform = 'scale(1)';
                 }}
               >
-                Take the Test
+                {loading ? 'Starting Test...' : 'Start Test'}
               </button>
               <p style={{
                 color: 'rgba(255,255,255,0.6)',
