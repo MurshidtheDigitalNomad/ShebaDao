@@ -7,6 +7,10 @@ const Hero = () => {
     return (
       <>
         <style>{`
+          a {
+            color: white;
+            text-decoration: none;
+          }
           @keyframes pulse {
             0%, 100% { opacity: 0.2; }
             50% { opacity: 0.3; }
@@ -223,7 +227,7 @@ const Hero = () => {
                     transition: 'all 0.3s'
                   }} onMouseEnter={(e) => e.currentTarget.style.boxShadow = '0 0 25px rgba(255, 255, 255, 0.6)'}
                      onMouseLeave={(e) => e.currentTarget.style.boxShadow = '0 0 15px rgba(255, 255, 255, 0.3)'}>
-                    Watch Demo
+                    <a href="https://www.youtube.com/watch?v=oLfJOS4z3MQ" target="_blank" color="white">Watch Demo</a>
                   </button>
                   <button style={{ 
                     padding: '1rem 2rem', 
@@ -239,7 +243,7 @@ const Hero = () => {
                     transition: 'all 0.3s'
                   }} onMouseEnter={(e) => e.currentTarget.style.boxShadow = '0 0 30px rgba(228, 90, 146, 0.9)'}
                      onMouseLeave={(e) => e.currentTarget.style.boxShadow = '0 0 20px rgba(228, 90, 146, 0.6)'}>
-                    View Pitch Deck
+                    <a href="https://drive.google.com/file/d/1ZHpATgGXo_nAN6NQXs7TWBbZetsnWh50/view?usp=drive_link" target="_blank" color="white">View Pitch Deck</a>
                   </button>
                 </div>
               </div>

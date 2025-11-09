@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -63,8 +64,9 @@ const Navbar = () => {
                 <a href="#how-it-works" style={{ color: '#374151', fontWeight: '500', textDecoration: 'none' }}>How It Works</a>
                 <a href="#contact" style={{ color: '#374151', fontWeight: '500', textDecoration: 'none' }}>Contact</a>
               </div>
-  
+              
               <div className="desktop-buttons" style={{ alignItems: 'center', gap: '1rem' }}>
+                <Link to="/start">
                 <button style={{ 
                   padding: '0.5rem 1.5rem', 
                   background: 'linear-gradient(135deg, #3E1E68 0%, #5D2F77 50%, #E45A92 100%)', 
@@ -76,7 +78,9 @@ const Navbar = () => {
                 }}>
                   Get Started
                 </button>
+                </Link>
               </div>
+
   
               <div className="mobile-menu-btn">
                 <button onClick={() => setIsOpen(!isOpen)} style={{ color: '#374151', background: 'none', border: 'none', cursor: 'pointer' }}>

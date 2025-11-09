@@ -1,11 +1,14 @@
-
+import mypic from "../../assets/MyPic.jpg";
+import subah from "../../assets/subah.png";
+import riza from "../../assets/riza.png";
+import wasi from "../../assets/wasi.png";
 
 const MeetTheTeam = () => {
     const teamMembers = [
-      { name: "Julkifl Hasan Wasi", role: "ML/DL Specialist" },
-      { name: "Subah Hasan", role: "Full Stack Developer" },
-      { name: "Murshidul Haque Ahmed", role: "AI Engineer" },
-      { name: "Zarif Riza", role: "Software Architect" }
+      { name: "Julkifl Hasan Wasi", role: "ML/DL Specialist", image: wasi },
+      { name: "Subah Hasan", role: "Full Stack Developer", image: subah },
+      { name: "Murshidul Haque Ahmed", role: "AI Engineer", image: mypic },
+      { name: "Zarif Riza", role: "Software Architect", image: riza }
     ];
   
     return (
@@ -82,7 +85,7 @@ const MeetTheTeam = () => {
                     fontSize: '1rem',
                     fontWeight: '500'
                   }}>
-                    Image Placeholder
+                    <img src={member.image} alt="MyPic" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                   </div>
                   <h3 style={{ fontSize: '1.5rem', fontWeight: 'bold', marginBottom: '0.5rem', color: '#111827', fontFamily: 'Teko, sans-serif' }}>
                     {member.name}
