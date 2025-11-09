@@ -1,14 +1,9 @@
-import mypic from "../../assets/MyPic.jpg";
-import subah from "../../assets/subah.png";
-import riza from "../../assets/riza.png";
-import wasi from "../../assets/wasi.png";
-
 const MeetTheTeam = () => {
     const teamMembers = [
-      { name: "Julkifl Hasan Wasi", role: "ML/DL Specialist", image: wasi },
-      { name: "Subah Hasan", role: "Full Stack Developer", image: subah },
-      { name: "Murshidul Haque Ahmed", role: "AI Engineer", image: mypic },
-      { name: "Zarif Riza", role: "Software Architect", image: riza }
+      { name: "Julkifl Hasan Wasi", role: "ML/DL Specialist", image: "/wasi.png" },
+      { name: "Subah Hasan", role: "Full Stack Developer", image: "/subah.png" },
+      { name: "Murshidul Haque Ahmed", role: "AI Engineer", image: "/mypic.jpg" },
+      { name: "Zarif Riza", role: "Software Architect", image: "/riza.png" }
     ];
   
     return (
