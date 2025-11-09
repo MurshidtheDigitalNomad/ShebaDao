@@ -2,7 +2,7 @@ const MeetTheTeam = () => {
     const teamMembers = [
       { name: "Julkifl Hasan Wasi", role: "ML/DL Specialist", image: "/wasi.png" },
       { name: "Subah Hasan", role: "Full Stack Developer", image: "/subah.png" },
-      { name: "Murshidul Haque Ahmed", role: "AI Engineer", image: "/mypic.jpg" },
+      { name: "Murshidul Haque Ahmed", role: "AI Engineer", image: "/Mypic.jpg" },
       { name: "Zarif Riza", role: "Software Architect", image: "/riza.png" }
     ];
   
