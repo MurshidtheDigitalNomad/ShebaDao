@@ -210,7 +210,7 @@ const Hero = () => {
                     <ArrowRight />
                   </button>
                 </Link>
-                  <button style={{ 
+                  {/* <button style={{ 
                     padding: '1rem 2rem', 
                     border: '2px solid white', 
                     color: 'white', 
@@ -241,7 +241,7 @@ const Hero = () => {
                   }} onMouseEnter={(e) => e.currentTarget.style.boxShadow = '0 0 30px rgba(228, 90, 146, 0.9)'}
                      onMouseLeave={(e) => e.currentTarget.style.boxShadow = '0 0 20px rgba(228, 90, 146, 0.6)'}>
                     <a href="https://drive.google.com/file/d/1ZHpATgGXo_nAN6NQXs7TWBbZetsnWh50/view?usp=drive_link" target="_blank" color="white">View Pitch Deck</a>
-                  </button>
+                  </button> */}
                 </div>
               </div>
             </div>
