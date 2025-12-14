@@ -114,10 +114,7 @@ const Hero = () => {
                   Your Skills. Vetted by AI.<br />
                   Leading you <span className="highlight-text">To Your Jobs</span>
                 </h1>
-                
-                <p style={{ fontSize: '1.25rem', color: '#FFACAC', fontStyle: 'italic', marginTop: '0'}}>
-                  Built by Team Bhodroloks
-                </p>
+              
   
                 <div style={{ 
                   position: 'relative', 

@@ -55,7 +55,7 @@ const Navbar = () => {
                   WebkitTextFillColor: 'transparent',
                   fontFamily: 'Teko, sans-serif'
                 }}>
-                  ShebaDao
+                
                 </span>
               </div>
   
