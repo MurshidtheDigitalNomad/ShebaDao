@@ -3,7 +3,6 @@ import Hero from "../Components/Landing Page/Hero";
 import Features from "../Components/Landing Page/Features";
 import HowItWorks from "../Components/Landing Page/HowItWorks";
 import VisionQuote from "../Components/Landing Page/VisionQuote";
-import Footer from "../Components/Landing Page/Footer";
 
 const Landing = () => {
     return (
@@ -14,7 +13,7 @@ const Landing = () => {
         <HowItWorks />
         {/* <MeetTheTeam /> */}
         <VisionQuote />
-        <Footer />
+        {/* <Footer /> */}
       </div>
     );
   };
