@@ -258,7 +258,7 @@ const DashboardPage = () => {
                 fontFamily: 'Teko, sans-serif',
                 animation: 'glow 3s ease-in-out infinite'
               }}>
-                ShebaDAO
+                IntelliVET
               </h1>
               <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '0.875rem', marginTop: '0.25rem', fontWeight: '400' }}>
                 AI-Powered Career Platform
@@ -382,7 +382,7 @@ const DashboardPage = () => {
                 WebkitTextFillColor: 'transparent',
                 fontFamily: 'Teko, sans-serif'
               }}>
-                ShebaDAO
+                IntelliVET
               </h1>
               <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '0.875rem', marginTop: '0.25rem' }}>
                 AI-Powered Career Platform
@@ -464,7 +464,7 @@ const DashboardPage = () => {
                 WebkitTextFillColor: 'transparent',
                 fontFamily: 'Teko, sans-serif'
               }}>
-                ShebaDAO
+                IntelliVET
               </h1>
             </div>
   

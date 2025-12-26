@@ -243,7 +243,7 @@ interface Question {
                 fontFamily: 'Teko, sans-serif',
                 marginBottom: '0.25rem'
               }}>
-                ShebaDAO AI Test System
+                IntelliVET AI Assessment
               </h1>
               <p style={{
                 color: 'rgba(255,255,255,0.6)',
